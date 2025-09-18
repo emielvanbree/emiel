@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Emiel van Bree</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2e4057; /* headings, key text */
+      --bg: #f8f8f8;      /* page background */
+      --accent: #d97258;  /* accents */
+      --divider: #c0c0c0; /* subtle borders */
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background-color: var(--bg); color: var(--primary); font-family: 'Lato', sans-serif; line-height: 1.6; }
+    header { position: relative; text-align: center; padding: 6rem 1rem; background: var(--primary); color: #fff; overflow: hidden; }
+    header::before { content: ""; position: absolute; inset: 0; background: url('emiel.png') center/cover no-repeat; opacity: 0.25; z-index: 1; }
+    header h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; margin: 0; letter-spacing: 2px; position: relative; z-index: 2; }
+    header p { font-size: 1.4rem; color: var(--accent); margin-top: 0.5rem; position: relative; z-index: 2; }
+
+    section { padding: 3rem 2rem; max-width: 1100px; margin: auto; }
+    h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: var(--accent); margin-bottom: 1rem; position: relative; }
+    h2::after { content: ""; display: block; width: 60px; height: 4px; background: var(--primary); margin-top: 6px; }
+
+    .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .tile { background: #fff; border: 1px solid var(--divider); box-shadow: 0 6px 12px rgba(0,0,0,0.08); border-radius: 10px; padding: 1.25rem 1.5rem; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease; }
+    .tile:hover { transform: translateY(-4px); box-shadow: 0 12px 22px rgba(0,0,0,0.12); }
+    .tile h3 { margin: 0; font-family: 'Montserrat', sans-serif; color: var(--primary); font-weight: 600; }
+    .tile p { margin: 0.5rem 0 0; color: #556; font-size: 0.95rem; }
+
+    /* Modal */
+    .modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.55); justify-content: center; align-items: center; animation: fadeIn .35s; padding: 1rem; }
+    .modal-content { background: #fff; color: var(--primary); width: min(90%, 680px); border-radius: 12px; padding: 1.75rem; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.25); animation: slideIn .35s; }
+    .modal-content h3 { margin: 0 0 .5rem; font-family: 'Montserrat', sans-serif; }
+    .modal-content p { margin: 0 0 .75rem; }
+    .modal-content ul { margin: 0.25rem 0 0 1.2rem; padding: 0; }
+    .modal-content li { margin: 0.35rem 0; }
+    .close { position: absolute; top: 10px; right: 14px; font-size: 1.6rem; cursor: pointer; color: var(--accent); line-height: 1; }
+
+    footer { text-align: center; margin: 3rem 0 2rem; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideIn { from { transform: translateY(-18px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Emiel van Bree</h1>
+    <p>Visionary CTO • Transformation Leader • Strategic IT Innovator</p>
+  </header>
+
+  <section>
+    <h2>Introduction</h2>
+    <p>I am a seasoned IT executive with over 20 years of experience in driving digital transformation, building high-performing teams, and leading strategic technology initiatives across Europe. From scaling agile DevOps organizations to implementing complex ERP and WMS systems, I combine deep technical expertise with strong business acumen. Currently available for freelance opportunities, I help companies achieve rapid, sustainable impact by aligning technology with business goals.</p>
+    <p><strong>I am actively looking for freelance assignments where I can bring immediate value.</strong></p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="tiles">
+      <div class="tile" data-modal="salesupply" onclick="openModal('salesupply')"><h3>Salesupply</h3><p>Chief Technology Officer<br/>2025 – Present</p></div>
+      <div class="tile" data-modal="prezero" onclick="openModal('prezero')"><h3>PreZero</h3><p>Manager IT Business Consulting<br/>2023 – 2025</p></div>
+      <div class="tile" data-modal="vidaxl" onclick="openModal('vidaxl')"><h3>vidaXL</h3><p>Development Manager<br/>2020 – 2023</p></div>
+      <div class="tile" data-modal="vos" onclick="openModal('vos')"><h3>Vos Logistics</h3><p>Software Development Manager<br/>2019 – 2020</p></div>
+      <div class="tile" data-modal="mega" onclick="openModal('mega')"><h3>MegaGroup</h3><p>IT Manager<br/>2012 – 2018</p></div>
+      <div class="tile" data-modal="vink" onclick="openModal('vink')"><h3>Vink Holding</h3><p>IT Operations & Contracts Manager<br/>2008 – 2012</p></div>
+      <div class="tile" data-modal="europ" onclick="openModal('europ')"><h3>Europ Assistance</h3><p>Team Manager ICT<br/>2004 – 2008</p></div>
+      <div class="tile" data-modal="dominos" onclick="openModal('dominos')"><h3>Domino’s Pizza</h3><p>Store Manager<br/>2000 – 2002</p></div>
+      <div class="tile" data-modal="chef" onclick="openModal('chef')"><h3>Restaurants</h3><p>Cook<br/>1997 – 2000</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education & Training</h2>
+    <div class="tiles">
+      <div class="tile" data-modal="mba" onclick="openModal('mba')"><h3>M-MBA – Nyenrode</h3><p>Digital Strategy & Transformation<br/>2023</p></div>
+      <div class="tile" data-modal="sap" onclick="openModal('sap')"><h3>SAP S4Hana Foundations</h3><p>ERP Training<br/>2021</p></div>
+      <div class="tile" data-modal="azure" onclick="openModal('azure')"><h3>MS Azure Fundamentals</h3><p>Cloud Basics<br/>2017</p></div>
+      <div class="tile" data-modal="scrum" onclick="openModal('scrum')"><h3>SCRUM for Business</h3><p>Agile Methodology<br/>2016</p></div>
+      <div class="tile" data-modal="itil" onclick="openModal('itil')"><h3>ITIL Foundations V2 & V3</h3><p>Service Management<br/>2006 & 2009</p></div>
+      <div class="tile" data-modal="facility" onclick="openModal('facility')"><h3>Facility Management</h3><p>Hogeschool Ijsselland<br/>1996 – 1997</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Freelance Opportunities</h2>
+    <p>Below are examples of assignments I would be interested in and well-suited for:</p>
+    <div class="tiles">
+      <div class="tile" data-modal="cto" onclick="openModal('cto')"><h3>Interim CTO / CIO</h3></div>
+      <div class="tile" data-modal="strategy" onclick="openModal('strategy')"><h3>IT Transformation & Strategy Consultant</h3></div>
+      <div class="tile" data-modal="agile" onclick="openModal('agile')"><h3>Agile / DevOps Implementation Lead</h3></div>
+      <div class="tile" data-modal="program" onclick="openModal('program')"><h3>Program & Project Manager</h3></div>
+      <div class="tile" data-modal="vendor" onclick="openModal('vendor')"><h3>Vendor & Contract Management Specialist</h3></div>
+      <div class="tile" data-modal="innovation" onclick="openModal('innovation')"><h3>Digital Innovation Advisor</h3></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pricing & Availability</h2>
+    <p>My services are designed to deliver strategic value and are tailored to the unique needs of each business. I work with clients on an interim, project-based, or retained advisory basis. To discuss your specific challenges and receive a custom proposal, please contact me for a complimentary consultation.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Emiel van Bree | Available for Freelance Opportunities | <a href="mailto:evanbree@hotmail.com">Contact Me</a></p>
+  </footer>
+
+  <!-- EXPERIENCE MODALS -->
+  <div id="salesupply" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('salesupply')">&times;</span><h3>Salesupply — Chief Technology Officer</h3><p>Leading technology strategy and transformation.</p><ul><li>Define and execute global IT strategy.</li><li>Ensure scalable, secure architecture.</li><li>Drive digital innovation across customer portals & services.</li></ul></div></div>
+  <div id="prezero" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('prezero')">&times;</span><h3>PreZero — Manager IT Business Consulting</h3><p>Directed business–IT alignment and modernisation.</p><ul><li>Advised stakeholders on sustainable IT landscapes.</li><li>Improved data-driven decision making.</li><li>Embedded governance and compliance.</li></ul></div></div>
+  <div id="vidaxl" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('vidaxl')">&times;</span><h3>vidaXL — Development Manager</h3><p>Scaled a Matrix Agile Organisation to 14 DevOps teams.</p><ul><li>Budget & capacity planning for multi-team delivery.</li><li>Built partner network; near/offsourcing.</li><li>Process optimisation and executive escalation path.</li></ul></div></div>
+  <div id="vos" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('vos')">&times;</span><h3>Vos Logistics — Software Development Manager</h3><p>Expanded engineering capacity and delivery quality.</p><ul><li>Hired engineers and managed vendors.</li><li>Optimised SDLC and delivery cadence.</li><li>Aligned roadmaps with logistics operations.</li></ul></div></div>
+  <div id="mega" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('mega')">&times;</span><h3>MegaGroup — IT Manager</h3><p>IT strategy for 7 companies in 6 countries.</p><ul><li>ERP (MS Dynamics) & WMS implementations.</li><li>Infra renewal & e‑commerce rollout.</li><li>Founded Change Advisory Board; MT member.</li></ul></div></div>
+  <div id="vink" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('vink')">&times;</span><h3>Vink Holding — IT Operations & Contracts Manager</h3><p>Daily IT operations for 24 companies in 20 countries.</p><ul><li>Implemented ITSM processes and architecture guardrails.</li><li>Negotiated supplier contracts and SLAs.</li><li>Delivered group-wide hard/soft projects.</li></ul></div></div>
+  <div id="europ" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('europ')">&times;</span><h3>Europ Assistance — Team Manager ICT</h3><p>Ensured 24/7 operations across 3 sites.</p><ul><li>Managed Service Desk & team growth.</li><li>Bridged business and IT for availability goals.</li><li>Delivered critical IT projects.</li></ul></div></div>
+  <div id="dominos" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('dominos')">&times;</span><h3>Domino’s Pizza — Store Manager</h3><p>End-to-end store leadership in a fast-paced context.</p><ul><li>People development & shift operations.</li><li>Sales performance & quality control.</li></ul></div></div>
+  <div id="chef" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('chef')">&times;</span><h3>Restaurants — Cook</h3><p>High-pressure kitchens that forged discipline & teamwork.</p><ul><li>Quality standards and consistency.</li><li>Service coordination with the team.</li></ul></div></div>
+
+  <!-- EDUCATION MODALS -->
+  <div id="mba" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('mba')">&times;</span><h3>Nyenrode — Modular MBA (Digital Strategy & Transformation)</h3><p>Executive program in digital business & transformation.</p><ul><li>Strategic leadership and innovation.</li><li>Enterprise transformation frameworks.</li></ul></div></div>
+  <div id="sap" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('sap')">&times;</span><h3>SAP S/4HANA Foundations</h3><p>Core ERP architecture & processes.</p><ul><li>Digital core concepts and integrations.</li></ul></div></div>
+  <div id="azure" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('azure')">&times;</span><h3>Microsoft Azure Fundamentals</h3><p>Cloud services, security & governance.</p><ul><li>Applied to scalable, secure solutions.</li></ul></div></div>
+  <div id="scrum" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('scrum')">&times;</span><h3>SCRUM for Business</h3><p>Agile mindset & Scrum in business settings.</p><ul><li>Iterative delivery and stakeholder alignment.</li></ul></div></div>
+  <div id="itil" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('itil')">&times;</span><h3>ITIL Foundations v2 & v3</h3><p>Service lifecycle & continual improvement.</p><ul><li>IT-business alignment and SLA focus.</li></ul></div></div>
+  <div id="facility" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('facility')">&times;</span><h3>Hogeschool Ijsselland — Facility Management</h3><p>Operations, logistics & support services.</p><ul><li>Foundations of organisational service delivery.</li></ul></div></div>
+
+  <!-- FREELANCE OPPORTUNITIES MODALS -->
+  <div id="cto" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('cto')">&times;</span><h3>Interim CTO / CIO</h3><p>Hands-on executive leadership during transitions.</p><ul><li>Stabilise IT operations & reduce risk.</li><li>Own and communicate the technology roadmap.</li><li>Mentor leadership for lasting capability.</li></ul></div></div>
+  <div id="strategy" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('strategy')">&times;</span><h3>IT Transformation & Strategy Consultant</h3><p>Design and guide modernisation programs.</p><ul><li>Assess landscape and define target architecture.</li><li>Deliver measurable outcomes and governance.</li></ul></div></div>
+  <div id="agile" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('agile')">&times;</span><h3>Agile / DevOps Implementation Lead</h3><p>Scale agile & DevOps practices.</p><ul><li>Coaching, frameworks, and metrics.</li><li>Pipeline & platform improvements.</li></ul></div></div>
+  <div id="program" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('program')">&times;</span><h3>Program & Project Manager</h3><p>End-to-end delivery of complex initiatives.</p><ul><li>Scope, timeline, budget & risk.</li><li>Stakeholder comms and value realisation.</li></ul></div></div>
+  <div id="vendor" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('vendor')">&times;</span><h3>Vendor & Contract Management Specialist</h3><p>Optimise partner ecosystem & SLAs.</p><ul><li>Contract negotiation & performance management.</li><li>Cost control and risk mitigation.</li></ul></div></div>
+  <div id="innovation" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('innovation')">&times;</span><h3>Digital Innovation Advisor</h3><p>Identify, validate and scale new value.</p><ul><li>Tech scouting & experimentation.</li><li>Business model pilots & adoption.</li></ul></div></div>
+
+  <script>
+    // Robust open/close with safety checks to avoid null .style errors
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (!el) { console.error(`[Modal] Missing element with id="${id}"`); return false; }
+      el.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      return true;
+    }
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (!el) { console.error(`[Modal] Missing element with id="${id}"`); return false; }
+      el.style.display = 'none';
+      document.body.style.overflow = '';
+      return true;
+    }
+    // Click outside to close
+    window.addEventListener('click', (evt) => {
+      document.querySelectorAll('.modal').forEach(m => {
+        if (evt.target === m) { m.style.display = 'none'; document.body.style.overflow=''; }
+      });
+    });
+    // ESC to close
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // ===== Simple Self-Tests ("test cases") =====
+    document.addEventListener('DOMContentLoaded', () => {
+      const tileIds = Array.from(document.querySelectorAll('.tile[data-modal]')).map(t => t.dataset.modal);
+      const missing = tileIds.filter(id => !document.getElementById(id));
+      if (missing.length === 0) {
+        console.log('TEST PASS: All tiles have corresponding modals.');
+      } else {
+        console.error('TEST FAIL: Missing modals for ids:', missing);
+      }
+      // Open/close smoke test on first modal id
+      if (tileIds[0]) {
+        const first = tileIds[0];
+        const opened = openModal(first);
+        if (opened) { closeModal(first); console.log('TEST PASS: openModal/closeModal work for', first); }
+      }
+    });
+  </script>
+</body>
+</html>
