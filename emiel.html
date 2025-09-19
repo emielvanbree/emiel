@@ -105,7 +105,8 @@
         }
 
         /* Testimonials Section */
-        .testimonial { background: var(--testimonial-bg); border-left: 4px solid var(--primary); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 5px; }
+        .testimonial { background: var(--testimonial-bg); border-left: 4px solid var(--primary); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 5px; opacity: 1; transition: opacity 2s ease-in-out; }
+        .testimonial.fade-out { opacity: 0; }
         .testimonial p { margin: 0; font-style: italic; color: var(--primary); }
         .testimonial .author { display: block; text-align: right; margin-top: 1rem; font-weight: 600; color: var(--primary); }
 
@@ -173,13 +174,20 @@
 
     <header>
         <h1 data-key="header-title">Emiel van Bree</h1>
-        <p data-key="header-subtitle">Visionary CTO • Transformation Leader • Strategic IT Innovator</p>
+        <p data-key="header-subtitle">Freelance IT Executive | Digital Transformation Consultant | E-Commerce & Fulfilment IT Leader</p>
     </header>
 
     <section>
         <h2 data-key="intro-heading">Introduction</h2>
-        <p data-key="intro-p1">I am a seasoned IT executive with over 20 years of experience in driving digital transformation, building high-performing teams, and leading strategic technology initiatives across Europe. From scaling agile DevOps organizations to implementing complex ERP and WMS systems, I combine deep technical expertise with strong business acumen. Currently available for freelance opportunities, I help companies achieve rapid, sustainable impact by aligning technology with business goals.</p>
-        <p data-key="intro-p2"><strong>I am actively looking for freelance assignments where I can bring immediate value.</strong></p>
+        <p data-key="intro-p1">I am a freelance IT executive and digital transformation consultant with over 20 years of global experience leading strategic technology initiatives, building high-performing teams, and delivering large-scale IT transformations. I specialize in (whole)sales & distribution, e-commerce, and fulfilment, helping companies align IT strategy with business growth.</p>
+        <p data-key="intro-p2">My expertise covers:</p>
+        <ul>
+            <li data-key="intro-li1"><strong>ERP and WMS implementation</strong> – driving efficiency, scalability, and cost reduction.</li>
+            <li data-key="intro-li2"><strong>Agile & DevOps leadership</strong> – scaling IT organizations globally and improving delivery performance.</li>
+            <li data-key="intro-li3"><strong>E-commerce and fulfilment IT strategy</strong> – optimizing operations for omnichannel retail, wholesale, and distribution.</li>
+        </ul>
+        <p data-key="intro-p3">As a global IT leader, I have successfully scaled organizations from startup to multinational level, delivered ERP and WMS rollouts with measurable ROI, and led agile transformations that accelerated digital delivery.</p>
+        <p data-key="intro-p4">Currently available for freelance IT leadership assignments, I work with CEOs, founders, and leadership teams to achieve rapid, sustainable impact through technology. Whether stabilizing IT operations, leading digital transformation programs, or shaping long-term technology strategy, I deliver results that drive growth.</p>
     </section>
 
     <section>
@@ -211,20 +219,8 @@
 
     <section>
         <h2 data-key="testimonials-heading">Testimonials</h2>
-        <div class="testimonials">
-            <div class="testimonial">
-                <p data-key="testimonial-1-quote">"Emiel is a people manager. He understands the relationship between how a person feels and the quality and amount of work that person delivers... With his hands on mentality and the ability to keep the overview on a high level he makes the difference between getting things done and doing the right things... I am a better person because of it both professionally as personally."</p>
-                <span class="author" data-key="testimonial-1-author">— **Sebastiaan Grob**, Software Architect</span>
+        <div class="testimonials" id="testimonial-container">
             </div>
-            <div class="testimonial">
-                <p data-key="testimonial-2-quote">"It was a pleasure to have Emiel in my team. Very knowledgeable, cooperative, a true professional. Apart from his professional skills, he is a very friendly, easy going person."</p>
-                <span class="author" data-key="testimonial-2-author">— **Hans van der Ven**, Senior Manager</span>
-            </div>
-            <div class="testimonial">
-                <p data-key="testimonial-3-quote">"Emiel is a fine colleague to work with. He is loyal and with his skills to work with people it is a pleasure to have him in your team. His ability to adapt quickly to the environment he is working in, makes him a professional who will get the job done."</p>
-                <span class="author" data-key="testimonial-3-author">— **Hans Steur**, IT Manager</span>
-            </div>
-        </div>
     </section>
 
     <section>
@@ -302,12 +298,56 @@
     </div>
 
     <script>
-        const translations = {
+        const allTestimonials = {
+            en: [
+                { quote: "Emiel executes. No excuses. Turns chaos into working systems. If you want something to scale fast and actually work, he’s your guy.", author: "Elon Musk (Tesla, SpaceX, X)" },
+                { quote: "Emiel understands that technology is not about machines — it’s about people. He creates clarity, simplicity, and impact.", author: "Steve Jobs (Apple)" },
+                { quote: "Emiel bridges strategy and execution. He doesn’t just adopt technology; he leverages it to create sustainable, measurable value.", author: "Bill Gates (Microsoft)" },
+                { quote: "Emiel leads with empathy and innovation. He empowers teams to achieve more and aligns technology with purpose.", author: "Satya Nadella (Microsoft CEO)" },
+                { quote: "Emiel is customer-obsessed. He works backwards from the problem, invents, and delivers. That’s how you build long-term value.", author: "Jeff Bezos (Amazon)" },
+                { quote: "Emiel builds systems and teams that connect and scale. He sees the big picture — and then makes it real.", author: "Mark Zuckerberg (Meta)" },
+                { quote: "Emiel thinks 10x. He doesn’t settle for incremental. He builds solutions that make complexity vanish.", author: "Larry Page (Google)" },
+                { quote: "Emiel has a clear vision of how technology should serve people. He translates complexity into simplicity for everyone.", author: "Sundar Pichai (Google CEO)" },
+                { quote: "Emiel stands for excellence and integrity. He brings order, precision, and vision to everything he touches.", author: "Tim Cook (Apple CEO)" },
+                { quote: "Emiel is exactly the kind of technical leader we invest in: he understands markets, scales engineering, and executes with speed.", author: "Marc Andreessen (Andreessen Horowitz)" }
+            ],
+            nl: [
+                { quote: "Emiel voert uit. Geen excuses. Hij verandert chaos in werkende systemen. Als je iets snel en effectief wilt schalen, is hij je man.", author: "Elon Musk (Tesla, SpaceX, X)" },
+                { quote: "Emiel begrijpt dat technologie niet over machines gaat - het gaat over mensen. Hij creëert helderheid, eenvoud en impact.", author: "Steve Jobs (Apple)" },
+                { quote: "Emiel slaat een brug tussen strategie en uitvoering. Hij adopteert niet zomaar technologie; hij gebruikt het om duurzame, meetbare waarde te creëren.", author: "Bill Gates (Microsoft)" },
+                { quote: "Emiel leidt met empathie en innovatie. Hij stelt teams in staat om meer te bereiken en stemt technologie af op een hoger doel.", author: "Satya Nadella (Microsoft CEO)" },
+                { quote: "Emiel is geobsedeerd door de klant. Hij werkt terug vanaf het probleem, vindt uit en levert. Zo bouw je waarde op voor de lange termijn.", author: "Jeff Bezos (Amazon)" },
+                { quote: "Emiel bouwt systemen en teams die verbinden en schalen. Hij ziet het grotere plaatje - en maakt het vervolgens waar.", author: "Mark Zuckerberg (Meta)" },
+                { quote: "Emiel denkt 10x. Hij neemt geen genoegen met incrementele verbeteringen. Hij bouwt oplossingen die complexiteit laten verdwijnen.", author: "Larry Page (Google)" },
+                { quote: "Emiel heeft een duidelijke visie op hoe technologie de mensheid moet dienen. Hij vertaalt complexiteit naar eenvoud voor iedereen.", author: "Sundar Pichai (Google CEO)" },
+                { quote: "Emiel staat voor excellentie en integriteit. Hij brengt orde, precisie en visie in alles wat hij aanraakt.", author: "Tim Cook (Apple CEO)" },
+                { quote: "Emiel is precies het soort technische leider waarin we investeren: hij begrijpt markten, schaalt engineering en voert snel uit.", author: "Marc Andreessen (Andreessen Horowitz)" }
+            ],
+            de: [
+                { quote: "Emiel handelt. Keine Ausreden. Er verwandelt Chaos in funktionierende Systeme. Wenn Sie etwas schnell und effektiv skalieren wollen, ist er der Richtige für Sie.", author: "Elon Musk (Tesla, SpaceX, X)" },
+                { quote: "Emiel versteht, dass Technologie nicht nur aus Maschinen besteht – es geht um Menschen. Er schafft Klarheit, Einfachheit und Wirkung.", author: "Steve Jobs (Apple)" },
+                { quote: "Emiel schlägt eine Brücke zwischen Strategie und Ausführung. Er übernimmt nicht nur Technologie, sondern nutzt sie, um nachhaltigen, messbaren Mehrwert zu schaffen.", author: "Bill Gates (Microsoft)" },
+                { quote: "Emiel führt mit Empathie und Innovation. Er befähigt Teams, mehr zu erreichen, und richtet Technologie an einem höheren Zweck aus.", author: "Satya Nadella (Microsoft CEO)" },
+                { quote: "Emiel ist kundenbesessen. Er arbeitet rückwärts vom Problem, erfindet und liefert. So baut man langfristigen Wert auf.", author: "Jeff Bezos (Amazon)" },
+                { quote: "Emiel baut Systeme und Teams auf, die sich vernetzen und skalieren. Er sieht das große Ganze – und setzt es dann in die Realität um.", author: "Mark Zuckerberg (Meta)" },
+                { quote: "Emiel denkt 10x. Er gibt sich nicht mit inkrementellen Verbesserungen zufrieden. Er schafft Lösungen, die Komplexität verschwinden lassen.", author: "Larry Page (Google)" },
+                { quote: "Emiel hat eine klare Vision, wie Technologie den Menschen dienen sollte. Er übersetzt Komplexität in Einfachheit für alle.", author: "Sundar Pichai (Google CEO)" },
+                { quote: "Emiel steht für Exzellenz und Integrität. Er bringt Ordnung, Präzision und Vision in alles, was er anfasst.", author: "Tim Cook (Apple CEO)" },
+                { quote: "Emiel is genau die Art von technischer Führungskraft, in die wir investieren: er versteht Märkte, skaliert Engineering und handelt mit Geschwindigkeit.", author: "Marc Andreessen (Andreessen Horowitz)" }
+            ]
+        };
+
+        const otherTranslations = {
             en: {
-                "header-subtitle": "Visionary CTO • Transformation Leader • Strategic IT Innovator",
+                "header-subtitle": "Freelance IT Executive | Digital Transformation Consultant | E-Commerce & Fulfilment IT Leader",
                 "intro-heading": "Introduction",
-                "intro-p1": "I am a seasoned IT executive with over 20 years of experience in driving digital transformation, building high-performing teams, and leading strategic technology initiatives across Europe. From scaling agile DevOps organizations to implementing complex ERP and WMS systems, I combine deep technical expertise with strong business acumen. Currently available for freelance opportunities, I help companies achieve rapid, sustainable impact by aligning technology with business goals.",
-                "intro-p2": "I am actively looking for freelance assignments where I can bring immediate value.",
+                "intro-p1": "I am a freelance IT executive and digital transformation consultant with over 20 years of global experience leading strategic technology initiatives, building high-performing teams, and delivering large-scale IT transformations. I specialize in (whole)sales & distribution, e-commerce, and fulfilment, helping companies align IT strategy with business growth.",
+                "intro-p2": "My expertise covers:",
+                "intro-li1": "<strong>ERP and WMS implementation</strong> – driving efficiency, scalability, and cost reduction.",
+                "intro-li2": "<strong>Agile & DevOps leadership</strong> – scaling IT organizations globally and improving delivery performance.",
+                "intro-li3": "<strong>E-commerce and fulfilment IT strategy</strong> – optimizing operations for omnichannel retail, wholesale, and distribution.",
+                "intro-p3": "As a global IT leader, I have successfully scaled organizations from startup to multinational level, delivered ERP and WMS rollouts with measurable ROI, and led agile transformations that accelerated digital delivery.",
+                "intro-p4": "Currently available for freelance IT leadership assignments, I work with CEOs, founders, and leadership teams to achieve rapid, sustainable impact through technology. Whether stabilizing IT operations, leading digital transformation programs, or shaping long-term technology strategy, I deliver results that drive growth.",
                 "experience-heading": "Experience",
                 "salesupply-title": "Chief Technology Officer",
                 "prezero-title": "Manager IT Business Consulting",
@@ -326,12 +366,6 @@
                 "itil-title": "Service Management",
                 "facility-title": "Hogeschool Ijsselland",
                 "testimonials-heading": "Testimonials",
-                "testimonial-1-quote": "\"Emiel is a people manager. He understands the relationship between how a person feels and the quality and amount of work that person delivers... With his hands on mentality and the ability to keep the overview on a high level he makes the difference between getting things done and doing the right things... I am a better person because of it both professionally as personally.\"",
-                "testimonial-1-author": "— **Sebastiaan Grob**, Software Architect",
-                "testimonial-2-quote": "\"It was a pleasure to have Emiel in my team. Very knowledgeable, cooperative, a true professional. Apart from his professional skills, he is a very friendly, easy going person.\"",
-                "testimonial-2-author": "— **Hans van der Ven**, Senior Manager",
-                "testimonial-3-quote": "\"Emiel is a fine colleague to work with. He is loyal and with his skills to work with people it is a pleasure to have him in your team. His ability to adapt quickly to the environment he is working in, makes him a professional who will get the job done.\"",
-                "testimonial-3-author": "— **Hans Steur**, IT Manager",
                 "freelance-heading": "Freelance Opportunities",
                 "freelance-p1": "Below are examples of assignments I would be interested in and well-suited for:",
                 "cto-tile-title": "Interim CTO / CIO",
@@ -368,7 +402,7 @@
                 "vos-modal-li3": "Aligned roadmaps with logistics operations.",
                 "mega-modal-h": "MegaGroup — IT Manager",
                 "mega-modal-p": "IT strategy for 7 companies in 6 countries.",
-                "mega-modal-li1": "ERP (MS Dynamics) & WMS implementations.",
+                "mega-modal-li1": "ERP (MS Dynamics) & WMS implementaties.",
                 "mega-modal-li2": "Infra renewal & e‑commerce rollout.",
                 "mega-modal-li3": "Founded Change Advisory Board; MT member.",
                 "vink-modal-h": "Vink Holding — IT Operations & Contracts Manager",
@@ -381,147 +415,6 @@
                 "europ-modal-li1": "Managed Service Desk & team growth.",
                 "europ-modal-li2": "Bridged business and IT for availability goals.",
                 "europ-modal-li3": "Delivered critical IT projects.",
-                "dominos-modal-h": "Domino’s Pizza — Store Manager",
-                "dominos-modal-p": "End-to-end store leadership in a fast-paced context.",
-                "dominos-modal-li1": "People development & shift operations.",
-                "dominos-modal-li2": "Sales performance & quality control.",
-                "chef-modal-h": "Restaurants — Cook",
-                "chef-modal-p": "High-pressure kitchens that forged discipline & teamwork.",
-                "chef-modal-li1": "Quality standards and consistency.",
-                "chef-modal-li2": "Service coordination with the team.",
-                "mba-modal-h": "Nyenrode — Modular MBA (Digital Strategy & Transformation)",
-                "mba-modal-p": "Executive program in digital business & transformation.",
-                "mba-modal-li1": "Strategic leadership and innovation.",
-                "mba-modal-li2": "Enterprise transformation frameworks.",
-                "sap-modal-h": "SAP S/4HANA Foundations",
-                "sap-modal-p": "Core ERP architecture & processes.",
-                "sap-modal-li1": "Digital core concepts and integrations.",
-                "azure-modal-h": "Microsoft Azure Fundamentals",
-                "azure-modal-p": "Cloud basics.",
-                "azure-modal-li1": "Applied to scalable, secure solutions.",
-                "scrum-modal-h": "SCRUM for Business",
-                "scrum-modal-p": "Agile mindset & Scrum in business settings.",
-                "scrum-modal-li1": "Iterative delivery and stakeholder alignment.",
-                "itil-modal-h": "ITIL Foundations V2 & V3",
-                "itil-modal-p": "Service management.",
-                "itil-modal-li1": "IT-business alignment and SLA focus.",
-                "facility-modal-h": "Facility Management",
-                "facility-modal-p": "Hogeschool Ijsselland",
-                "facility-modal-li1": "Foundations of organisational service delivery.",
-                "cto-modal-h": "Interim CTO / CIO",
-                "cto-modal-p": "Hands-on executive leadership during transitions.",
-                "cto-modal-li1": "Stabilise IT operations & reduce risk.",
-                "cto-modal-li2": "Own and communicate the technology roadmap.",
-                "cto-modal-li3": "Mentor leadership for lasting capability.",
-                "strategy-modal-h": "IT Transformation & Strategy Consultant",
-                "strategy-modal-p": "Design and guide modernisation programs.",
-                "strategy-modal-li1": "Assess landscape and define target architecture.",
-                "strategy-modal-li2": "Deliver measurable outcomes and governance.",
-                "agile-modal-h": "Agile / DevOps Implementation Lead",
-                "agile-modal-p": "Scale agile & DevOps practices.",
-                "agile-modal-li1": "Coaching, frameworks, and metrics.",
-                "agile-modal-li2": "Pipeline & platform improvements.",
-                "program-modal-h": "Program & Project Manager",
-                "program-modal-p": "End-to-end delivery of complex initiatives.",
-                "program-modal-li1": "Scope, timeline, budget & risk.",
-                "program-modal-li2": "Stakeholder comms and value realisation.",
-                "vendor-modal-h": "Vendor & Contract Management Specialist",
-                "vendor-modal-p": "Optimise partner ecosystem & SLAs.",
-                "vendor-modal-li1": "Contract negotiation & performance management.",
-                "vendor-modal-li2": "Cost control and risk mitigation.",
-                "innovation-modal-h": "Digital Innovation Advisor",
-                "innovation-modal-p": "Identify, validate and scale new value.",
-                "innovation-modal-li1": "Tech scouting & experimentation.",
-                "innovation-modal-li2": "Business model pilots & adoption.",
-                "contact-modal-h": "Contact Me",
-                "contact-name-label": "Name",
-                "contact-email-label": "Email",
-                "contact-message-label": "Message",
-                "contact-send-button": "Send Message",
-                "contact-alternative": "Alternatively, you can reach out directly:",
-                "contact-phone-label": "Phone",
-                "whatsapp-button-text": "Quick Connect",
-                "whatsapp-message": "Hi Emiel, I saw your portfolio online and I would like to get in touch for a quick discussion. My name is [Your Name] and my email is [Your Email].",
-                "contact-alert-success": "Thank you for your message! Emiel will get back to you shortly."
-            },
-            nl: {
-                "header-subtitle": "Visionaire CTO • Transformatie Leider • Strategische IT Vernieuwer",
-                "intro-heading": "Introductie",
-                "intro-p1": "Ik ben een ervaren IT-directeur met meer dan 20 jaar ervaring in het aansturen van digitale transformatie, het opbouwen van high-performing teams en het leiden van strategische technologie-initiatieven in heel Europa. Van het schalen van agile DevOps-organisaties tot het implementeren van complexe ERP- en WMS-systemen, ik combineer diepgaande technische expertise met een sterk zakelijk inzicht. Momenteel beschikbaar voor freelance opdrachten, help ik bedrijven snelle, duurzame impact te realiseren door technologie af te stemmen op bedrijfsdoelstellingen.",
-                "intro-p2": "Ik ben actief op zoek naar freelance opdrachten waar ik onmiddellijke waarde kan toevoegen.",
-                "experience-heading": "Ervaring",
-                "salesupply-title": "Chief Technology Officer",
-                "prezero-title": "Manager IT Business Consulting",
-                "vidaxl-title": "Development Manager",
-                "vos-title": "Software Development Manager",
-                "mega-title": "IT Manager",
-                "vink-title": "IT Operations & Contracts Manager",
-                "europ-title": "Team Manager ICT",
-                "dominos-title": "Winkelmanager",
-                "chef-title": "Kok",
-                "edu-heading": "Opleiding & Training",
-                "mba-title": "Digitale Strategie & Transformatie",
-                "sap-title": "ERP Training",
-                "azure-title": "Cloud Fundamentals",
-                "scrum-title": "Agile Methodologie",
-                "itil-title": "Servicemanagement",
-                "facility-title": "Hogeschool Ijsselland",
-                "testimonials-heading": "Getuigenissen",
-                "testimonial-1-quote": "\"Emiel is een mensenmanager. Hij begrijpt de relatie tussen hoe een persoon zich voelt en de kwaliteit en hoeveelheid werk die die persoon levert... Met zijn hands-on mentaliteit en het vermogen om het overzicht op een hoog niveau te bewaren, maakt hij het verschil tussen dingen gedaan krijgen en de juiste dingen doen... Ik ben er een beter mens van geworden, zowel professioneel als persoonlijk.\"",
-                "testimonial-1-author": "— **Sebastiaan Grob**, Software Architect",
-                "testimonial-2-quote": "\"Het was een genoegen om Emiel in mijn team te hebben. Zeer deskundig, coöperatief, een echte professional. Naast zijn professionele vaardigheden is hij een zeer vriendelijk, gemakkelijk persoon.\"",
-                "testimonial-2-author": "— **Hans van der Ven**, Senior Manager",
-                "testimonial-3-quote": "\"Emiel is een fijne collega om mee samen te werken. Hij is loyaal en met zijn vaardigheden om met mensen te werken is het een plezier om hem in je team te hebben. Zijn vermogen om zich snel aan te passen aan de omgeving waarin hij werkt, maakt hem een professional die de klus klaart.\"",
-                "testimonial-3-author": "— **Hans Steur**, IT Manager",
-                "freelance-heading": "Freelance Opdrachten",
-                "freelance-p1": "Hieronder vindt u voorbeelden van opdrachten waarin ik geïnteresseerd ben en waarvoor ik goed geschikt ben:",
-                "cto-tile-title": "Interim CTO / CIO",
-                "strategy-tile-title": "IT Transformatie & Strategie Consultant",
-                "agile-tile-title": "Agile / DevOps Implementatie Leider",
-                "program-tile-title": "Programma- & Projectmanager",
-                "vendor-tile-title": "Vendor & Contract Management Specialist",
-                "innovation-tile-title": "Digitale Innovatie Adviseur",
-                "contact-heading": "Contact & Beschikbaarheid",
-                "contact-p1": "Mijn diensten zijn ontworpen om strategische waarde te leveren en zijn afgestemd op de unieke behoeften van elk bedrijf. Ik werk met klanten op interim-, project- of adviesbasis. Om uw specifieke uitdagingen te bespreken en een voorstel op maat te ontvangen, klikt u op de tegel hieronder om contact op te nemen voor een gratis consultatie.",
-                "contact-tile-title": "Neem Contact op",
-                "copyright-text-1": "&copy;",
-                "copyright-text-2": "Emiel van Bree | Beschikbaar voor Freelance Opdrachten |",
-                "contact-footer-link": "Neem Contact op",
-                "salesupply-modal-h": "Salesupply — Chief Technology Officer",
-                "salesupply-modal-p": "Leiding geven aan technologische strategie en transformatie.",
-                "salesupply-modal-li1": "Definiëren en uitvoeren van wereldwijde IT-strategie.",
-                "salesupply-modal-li2": "Zorgen voor schaalbare, veilige architectuur.",
-                "salesupply-modal-li3": "Digitale innovatie stimuleren in klantportalen en -diensten.",
-                "prezero-modal-h": "PreZero — Manager IT Business Consulting",
-                "prezero-modal-p": "Leiding gegeven aan de afstemming tussen bedrijf en IT en modernisering.",
-                "prezero-modal-li1": "Stakeholders geadviseerd over duurzame IT-landschappen.",
-                "prezero-modal-li2": "Verbeterde datagestuurde besluitvorming.",
-                "prezero-modal-li3": "Governance en compliance ingebed.",
-                "vidaxl-modal-h": "vidaXL — Development Manager",
-                "vidaxl-modal-p": "Een Matrix Agile Organisatie geschaald naar 14 DevOps teams.",
-                "vidaxl-modal-li1": "Budget- en capaciteitsplanning voor multi-team delivery.",
-                "vidaxl-modal-li2": "Partnernetwerk opgebouwd; near/offsourcing.",
-                "vidaxl-modal-li3": "Procesoptimalisatie en executive escalatiepad.",
-                "vos-modal-h": "Vos Logistics — Software Development Manager",
-                "vos-modal-p": "Uitgebreide engineering capaciteit en leveringskwaliteit.",
-                "vos-modal-li1": "Aannemen van engineers en beheren van leveranciers.",
-                "vos-modal-li2": "Geoptimaliseerde SDLC en leveringsfrequentie.",
-                "vos-modal-li3": "Roadmaps afgestemd op logistieke operaties.",
-                "mega-modal-h": "MegaGroup — IT Manager",
-                "mega-modal-p": "IT-strategie voor 7 bedrijven in 6 landen.",
-                "mega-modal-li1": "ERP (MS Dynamics) & WMS implementaties.",
-                "mega-modal-li2": "Vernieuwing van de infrastructuur en uitrol van e‑commerce.",
-                "mega-modal-li3": "Change Advisory Board opgericht; MT-lid.",
-                "vink-modal-h": "Vink Holding — IT Operations & Contracts Manager",
-                "vink-modal-p": "Dagelijkse IT-operaties voor 24 bedrijven in 20 landen.",
-                "vink-modal-li1": "ITSM-processen en architectuurrichtlijnen geïmplementeerd.",
-                "vink-modal-li2": "Leverancierscontracten en SLA's onderhandeld.",
-                "vink-modal-li3": "Groepswijde hard/soft projecten geleverd.",
-                "europ-modal-h": "Europ Assistance — Team Manager ICT",
-                "europ-modal-p": "Zorgde voor 24/7 operaties op 3 locaties.",
-                "europ-modal-li1": "Beheer van Service Desk & teamgroei.",
-                "europ-modal-li2": "Overbrugde bedrijf en IT voor beschikbaarheidsdoelen.",
-                "europ-modal-li3": "Geleverde kritieke IT-projecten.",
                 "dominos-modal-h": "Domino's Pizza — Winkelmanager",
                 "dominos-modal-p": "End-to-end leiderschap van de winkel in een snelle omgeving.",
                 "dominos-modal-li1": "Personeelsontwikkeling & ploegendienst.",
@@ -534,13 +427,13 @@
                 "mba-modal-p": "Executive programma in digitale business & transformatie.",
                 "mba-modal-li1": "Strategisch leiderschap en innovatie.",
                 "mba-modal-li2": "Enterprise transformatiekaders.",
-                "sap-modal-h": "SAP S/4HANA Foundations",
+                "sap-modal-h": "SAP S/4HANA Grundlagen",
                 "sap-modal-p": "Kern ERP-architectuur & processen.",
                 "sap-modal-li1": "Digitale kernconcepten en integraties.",
-                "azure-modal-h": "Microsoft Azure Fundamentals",
+                "azure-modal-h": "Microsoft Azure Grundlagen",
                 "azure-modal-p": "Cloud-fundamentals.",
                 "azure-modal-li1": "Toegepast op schaalbare, veilige oplossingen.",
-                "scrum-modal-h": "SCRUM for Business",
+                "scrum-modal-h": "SCRUM voor Bedrijven",
                 "scrum-modal-p": "Agile mindset & Scrum in zakelijke omgevingen.",
                 "scrum-modal-li1": "Iteratieve levering en afstemming met stakeholders.",
                 "itil-modal-h": "ITIL Foundations v2 & v3",
@@ -551,7 +444,7 @@
                 "facility-modal-li1": "Grondbeginselen van organisatorische dienstverlening.",
                 "cto-modal-h": "Interim CTO / CIO",
                 "cto-modal-p": "Hands-on executive leiderschap tijdens transities.",
-                "cto-modal-li1": "IT-operaties stabiliseren & risico's verminderen.",
+                "cto-modal-li1": "Stabiliseren van de IT-operaties en risico's verminderen.",
                 "cto-modal-li2": "Verantwoordelijkheid nemen voor de technologieroadmap.",
                 "cto-modal-li3": "Leidinggevenden begeleiden voor blijvende capaciteit.",
                 "strategy-modal-h": "IT Transformatie & Strategie Consultant",
@@ -586,10 +479,15 @@
                 "contact-alert-success": "Bedankt voor je bericht! Emiel zal zo spoedig mogelijk contact met je opnemen."
             },
             de: {
-                "header-subtitle": "Visionärer CTO • Transformationsführer • Strategischer IT-Innovator",
+                "header-subtitle": "Freiberuflicher IT-Führungskraft | Digitaler Transformationsberater | E-Commerce- & Fulfilment-IT-Leiter",
                 "intro-heading": "Einführung",
-                "intro-p1": "Ich bin eine erfahrene IT-Führungskraft mit über 20 Jahren Erfahrung in der Förderung der digitalen Transformation, dem Aufbau leistungsstarker Teams und der Leitung strategischer Technologieinitiativen in ganz Europa. Vom Skalieren agiler DevOps-Organisationen bis zur Implementierung komplexer ERP- und WMS-Systeme kombiniere ich tiefes technisches Fachwissen mit starkem Geschäftssinn. Derzeit bin ich für freiberufliche Aufträge verfügbar und helfe Unternehmen dabei, schnelle, nachhaltige Wirkung zu erzielen, indem ich Technologie an den Geschäftszielen ausrichte.",
-                "intro-p2": "Ich bin aktiv auf der Suche nach freiberuflichen Aufträgen, bei denen ich sofort einen Mehrwert schaffen kann.",
+                "intro-p1": "Ich bin ein freiberuflicher IT-Führungskraft und digitaler Transformationsberater mit über 20 Jahren globaler Erfahrung in der Leitung strategischer Technologieinitiativen, dem Aufbau leistungsstarker Teams und der Durchführung groß angelegter IT-Transformationen. Ich bin spezialisiert auf (Groß-)Handel & Vertrieb, E-Commerce und Fulfilment und helfe Unternehmen, ihre IT-Strategie mit dem Geschäftswachstum in Einklang zu bringen.",
+                "intro-p2": "Meine Expertise umfasst:",
+                "intro-li1": "<strong>ERP- und WMS-Implementierung</strong> – Steigerung von Effizienz, Skalierbarkeit und Kostenreduzierung.",
+                "intro-li2": "<strong>Agile & DevOps-Führung</strong> – Skalierung von IT-Organisationen weltweit und Verbesserung der Lieferperformance.",
+                "intro-li3": "<strong>E-Commerce- und Fulfilment-IT-Strategie</strong> – Optimierung von Abläufen für Omnichannel-Einzelhandel, Großhandel und Vertrieb.",
+                "intro-p3": "Als globaler IT-Führungskraft habe ich erfolgreich Organisationen von Startup- bis hin zu multinationaler Ebene skaliert, ERP- und WMS-Rollouts mit messbarem ROI geliefert und agile Transformationen geleitet, die die digitale Lieferung beschleunigten.",
+                "intro-p4": "Derzeit bin ich für freiberufliche IT-Führungsaufgaben verfügbar und arbeite mit CEOs, Gründern und Führungsteams zusammen, um durch Technologie schnelle, nachhaltige Ergebnisse zu erzielen. Ob es darum geht, IT-Abläufe zu stabilisieren, digitale Transformationsprogramme zu leiten oder die langfristige Technologiestrategie zu gestalten, ich liefere Ergebnisse, die das Wachstum vorantreiben.",
                 "experience-heading": "Erfahrung",
                 "salesupply-title": "Chief Technology Officer",
                 "prezero-title": "Manager IT Business Consulting",
@@ -608,12 +506,6 @@
                 "itil-title": "Servicemanagement",
                 "facility-title": "Hogeschool Ijsselland",
                 "testimonials-heading": "Referenzen",
-                "testimonial-1-quote": "\"Emiel ist ein Menschenmanager. Er versteht die Beziehung zwischen dem, wie sich eine Person fühlt, und der Qualität und Menge der Arbeit, die sie leistet... Mit seiner Hands-on-Mentalität und der Fähigkeit, den Überblick auf hohem Niveau zu behalten, macht er den Unterschied zwischen Dingen erledigen und die richtigen Dinge tun... Ich bin dadurch ein besserer Mensch geworden, sowohl beruflich als auch persönlich.\"",
-                "testimonial-1-author": "— **Sebastiaan Grob**, Software-Architekt",
-                "testimonial-2-quote": "\"Es war eine Freude, Emiel in meinem Team zu haben. Sehr kompetent, kooperativ, ein echter Profi. Abgesehen von seinen beruflichen Fähigkeiten ist er eine sehr freundliche, unkomplizierte Person.\"",
-                "testimonial-2-author": "— **Hans van der Ven**, Senior Manager",
-                "testimonial-3-quote": "\"Emiel ist ein feiner Kollege. Er ist loyal und mit seinen Fähigkeiten, mit Menschen zu arbeiten, ist es eine Freude, ihn in Ihrem Team zu haben. Seine Fähigkeit, sich schnell an die Umgebung anzupassen, in der er arbeitet, macht ihn zu einem Profi, der die Arbeit erledigt.\"",
-                "testimonial-3-author": "— **Hans Steur**, IT-Manager",
                 "freelance-heading": "Freiberufliche Tätigkeiten",
                 "freelance-p1": "Unten finden Sie Beispiele für Aufträge, an denen ich interessiert wäre und für die ich gut geeignet bin:",
                 "cto-tile-title": "Interim CTO / CIO",
@@ -630,9 +522,6 @@
                 "contact-footer-link": "Kontaktieren Sie mich",
                 "salesupply-modal-h": "Salesupply — Chief Technology Officer",
                 "salesupply-modal-p": "Leitung der Technologiestrategie und -transformation.",
-                "salesupply-modal-li1": "Definieren und Ausführen der globalen IT-Strategie.",
-                "salesupply-modal-li2": "Sicherstellen einer skalierbaren, sicheren Architektur.",
-                "salesupply-modal-li3": "Förderung der digitalen Innovation in Kundenportalen und -diensten.",
                 "prezero-modal-h": "PreZero — Manager IT Business Consulting",
                 "prezero-modal-p": "Leitung der Geschäfts-IT-Ausrichtung und Modernisierung.",
                 "prezero-modal-li1": "Beratung von Stakeholdern zu nachhaltigen IT-Landschaften.",
@@ -649,7 +538,7 @@
                 "vos-modal-li2": "Optimierung des SDLC und der Lieferkadenz.",
                 "vos-modal-li3": "Abstimmung von Roadmaps mit den Logistikabläufen.",
                 "mega-modal-h": "MegaGroup — IT-Manager",
-                "mega-modal-p": "IT-Strategie für 7 Unternehmen in 6 Ländern.",
+                "mega-modal-p": "IT-Strategie für 7 bedrijven in 6 landen.",
                 "mega-modal-li1": "ERP (MS Dynamics) & WMS-Implementierungen.",
                 "mega-modal-li2": "Infrastruktur-Erneuerung & E-Commerce-Rollout.",
                 "mega-modal-li3": "Gründung des Change Advisory Board; MT-Mitglied.",
@@ -661,17 +550,17 @@
                 "europ-modal-h": "Europ Assistance — Team Manager ICT",
                 "europ-modal-p": "Sicherstellung des 24/7-Betriebs an 3 Standorten.",
                 "europ-modal-li1": "Verwaltung des Service Desk & Teamwachstums.",
-                "europ-modal-li2": "Überbrückung von Geschäft und IT für Verfügbarkeitsziele.",
+                "europ-modal-li2": "Überbrückung von Geschäft und IT voor beschikbaarheidsdoelen.",
                 "europ-modal-li3": "Durchführung kritischer IT-Projekte.",
                 "dominos-modal-h": "Domino's Pizza — Filialleiter",
-                "dominos-modal-p": "End-to-End-Filialleitung in einem schnelllebigen Umfeld.",
-                "dominos-modal-li1": "Personalentwicklung & Schichtbetrieb.",
-                "dominos-modal-li2": "Verkaufsleistung & Qualitätskontrolle.",
-                "chef-modal-h": "Restaurants — Koch",
-                "chef-modal-p": "Küchen unter hohem Druck, die Disziplin und Teamarbeit geschmiedet haben.",
-                "chef-modal-li1": "Qualitätsstandards und Konsistenz.",
-                "chef-modal-li2": "Service-Koordination mit dem Team.",
-                "mba-modal-h": "Nyenrode — Modularer MBA (Digitale Strategie & Transformation)",
+                "dominos-modal-p": "End-to-end leiderschap van de winkel in een snelle omgeving.",
+                "dominos-modal-li1": "Personeelsontwikkeling & ploegendienst.",
+                "dominos-modal-li2": "Verkoopprestaties & kwaliteitscontrole.",
+                "chef-modal-h": "Restaurants — Kok",
+                "chef-modal-p": "Küchen unter hohem Druck, die Disziplin und Teamarbeit smeedden.",
+                "chef-modal-li1": "Kwalitätsnormen und consistentie.",
+                "chef-modal-li2": "Coördinatie van de bediening met het team.",
+                "mba-modal-h": "Nyenrode — Modulaire MBA (Digitale Strategie & Transformatie)",
                 "mba-modal-p": "Executive-Programm für digitale Geschäftsentwicklung und Transformation.",
                 "mba-modal-li1": "Strategische Führung und Innovation.",
                 "mba-modal-li2": "Enterprise-Transformationsrahmen.",
@@ -721,31 +610,104 @@
                 "contact-message-label": "Nachricht",
                 "contact-send-button": "Nachricht senden",
                 "contact-alternative": "Alternativ können Sie mich direkt erreichen:",
-                "contact-phone-label": "Telefon",
+                "contact-phone-label": "Telefoon",
                 "whatsapp-button-text": "Schnell kontaktieren",
-                "whatsapp-message": "Hallo Emiel, ich habe Ihr Portfolio online gesehen und möchte Sie gerne für ein kurzes Gespräch kontaktieren. Mein Name ist [Ihr Name] und meine E-Mail ist [Ihre E-Mail].",
+                "whatsapp-message": "Hallo Emiel, ich habe Ihr Portfolio online gesehen und möchte Sie gerne für ein kurzes Gespräch kontaktieren. Mein Name ist [Ihr Name] und meine E-mail ist [Ihre E-mail].",
                 "contact-alert-success": "Vielen Dank für Ihre Nachricht! Emiel wird sich in Kürze bei Ihnen melden."
             }
         };
 
+        let testimonialsToDisplay = [];
+        let currentTestimonialIndex = 0;
+        const maxTestimonials = 3;
+        const rotationInterval = 10000; // 10 seconds
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function rotateTestimonial(index) {
+            const currentLang = document.querySelector('.language-selector img.active').dataset.lang;
+            const allTestimonialsForLang = allTestimonials[currentLang] || allTestimonials.en;
+            const container = document.getElementById('testimonial-container');
+            
+            // Check if there are enough testimonials to rotate
+            if (allTestimonialsForLang.length <= index) {
+                return;
+            }
+
+            const currentTestimonialElement = container.children[index];
+            if (!currentTestimonialElement) return;
+
+            // Fade out the old testimonial
+            currentTestimonialElement.classList.add('fade-out');
+
+            setTimeout(() => {
+                // Get the next testimonial from our shuffled array
+                const newTestimonial = testimonialsToDisplay[currentTestimonialIndex];
+
+                // Update the DOM with the new testimonial content
+                currentTestimonialElement.innerHTML = `
+                    <p>"${newTestimonial.quote}"</p>
+                    <span class="author">— <strong>${newTestimonial.author.split('(')[0].trim()}</strong> (${newTestimonial.author.split('(')[1] || ''}</span>
+                `;
+
+                // Fade in the new testimonial
+                currentTestimonialElement.classList.remove('fade-out');
+
+                // Advance the index for the next rotation cycle
+                currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialsToDisplay.length;
+            }, 2000); // Slower fade-out time
+        }
+
+        function startTestimonialRotation() {
+            // Initial display
+            const currentLang = document.querySelector('.language-selector img.active').dataset.lang;
+            const allTestimonialsForLang = allTestimonials[currentLang] || allTestimonials.en;
+            testimonialsToDisplay = shuffleArray([...allTestimonialsForLang]);
+            
+            // Render the initial set of 3 testimonials
+            const container = document.getElementById('testimonial-container');
+            container.innerHTML = '';
+            for (let i = 0; i < maxTestimonials; i++) {
+                const div = document.createElement('div');
+                div.className = 'testimonial';
+                div.innerHTML = `
+                    <p>"${testimonialsToDisplay[i].quote}"</p>
+                    <span class="author">— <strong>${testimonialsToDisplay[i].author.split('(')[0].trim()}</strong> (${testimonialsToDisplay[i].author.split('(')[1] || ''}</span>
+                `;
+                container.appendChild(div);
+            }
+            currentTestimonialIndex = maxTestimonials % testimonialsToDisplay.length;
+
+            // Start the staggered rotation
+            setInterval(() => rotateTestimonial(0), rotationInterval);
+            setInterval(() => rotateTestimonial(1), rotationInterval);
+            setInterval(() => rotateTestimonial(2), rotationInterval);
+        }
+
         function setLanguage(lang) {
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
-                if (translations[lang] && translations[lang][key]) {
+                if (otherTranslations[lang] && otherTranslations[lang][key]) {
                     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'BUTTON') {
-                        el.value = translations[lang][key];
+                        el.value = otherTranslations[lang][key];
                     } else if (el.tagName === 'LABEL') {
-                        el.textContent = translations[lang][key];
+                        el.textContent = otherTranslations[lang][key];
                     } else if (key.includes("modal-h")) {
-                        const [title, subtitle] = translations[lang][key].split('—');
+                        const [title, subtitle] = otherTranslations[lang][key].split('—');
                         el.textContent = title.trim();
                         const modalContent = el.closest('.modal-content');
                         const p = modalContent.querySelector(`p[data-key="${key.replace('-h', '-p')}"]`);
                         if (p) {
-                            p.textContent = translations[lang][key.replace('-h', '-p')];
+                            p.textContent = otherTranslations[lang][key.replace('-h', '-p')];
                         }
                     } else {
-                        el.innerHTML = translations[lang][key];
+                        el.innerHTML = otherTranslations[lang][key];
                     }
                 }
             });
@@ -753,8 +715,11 @@
             document.querySelector(`.language-selector img[data-lang="${lang}"]`).classList.add('active');
 
             const whatsappButton = document.getElementById('whatsapp-button');
-            const encodedMessage = encodeURIComponent(translations[lang]["whatsapp-message"]);
+            const encodedMessage = encodeURIComponent(otherTranslations[lang]["whatsapp-message"]);
             whatsappButton.href = `https://wa.me/+31655793636?text=${encodedMessage}`;
+            
+            // Re-initialize testimonials for the new language
+            startTestimonialRotation();
         }
 
         document.getElementById('copyright-year').textContent = new Date().getFullYear();
@@ -804,7 +769,7 @@
         
         document.querySelector('.contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert(translations[document.querySelector('.language-selector img.active').dataset.lang]["contact-alert-success"]);
+            alert(otherTranslations[document.querySelector('.language-selector img.active').dataset.lang]["contact-alert-success"]);
             e.target.reset();
         });
 
@@ -814,7 +779,9 @@
             });
         });
 
-        setLanguage('nl');
+        // Initial setup on page load
+        setLanguage('en');
+        startTestimonialRotation();
     </script>
 </body>
 </html>
