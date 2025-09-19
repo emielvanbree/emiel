@@ -105,10 +105,31 @@
         }
 
         /* Testimonials Section */
-        .testimonial { background: var(--testimonial-bg); border-left: 4px solid var(--primary); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 5px; opacity: 1; transition: opacity 2s ease-in-out; }
-        .testimonial.fade-out { opacity: 0; }
-        .testimonial p { margin: 0; font-style: italic; color: var(--primary); }
-        .testimonial .author { display: block; text-align: right; margin-top: 1rem; font-weight: 600; color: var(--primary); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .testimonial-block {
+            background-color: var(--testimonial-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: opacity 2s ease-in-out;
+        }
+        .testimonial-block.fade-out {
+            opacity: 0;
+        }
+        .testimonial-block p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .testimonial-block .author {
+            display: block;
+            text-align: right;
+            font-weight: bold;
+            color: var(--accent);
+        }
 
         /* Contact Form */
         .contact-form { display: grid; gap: 1rem; }
@@ -163,7 +184,7 @@
     <div class="header-controls">
         <a href="#" class="whatsapp-button" id="whatsapp-button">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" class="whatsapp-icon">
-            <span data-key="whatsapp-button-text">Quick Connect</span>
+            <span>Quick Connect</span>
         </a>
         <div class="language-selector">
             <img src="https://flagcdn.com/w40/gb.png" alt="English" data-lang="en" class="active">
@@ -219,8 +240,20 @@
 
     <section>
         <h2 data-key="testimonials-heading">Testimonials</h2>
-        <div class="testimonials" id="testimonial-container">
+        <div class="testimonials-grid" id="testimonial-container">
+            <div class="testimonial-block">
+                <p class="testimonial-quote"></p>
+                <span class="author"></span>
             </div>
+            <div class="testimonial-block">
+                <p class="testimonial-quote"></p>
+                <span class="author"></span>
+            </div>
+            <div class="testimonial-block">
+                <p class="testimonial-quote"></p>
+                <span class="author"></span>
+            </div>
+        </div>
     </section>
 
     <section>
@@ -252,7 +285,7 @@
     <div id="prezero" class="modal" role="dialog" aria-modal="true" aria-labelledby="prezero-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="prezero-heading" data-key="prezero-modal-h">PreZero — Manager IT Business Consulting</h3><p data-key="prezero-modal-p">Directed business–IT alignment and modernisation.</p><ul><li data-key="prezero-modal-li1">Advised stakeholders on sustainable IT landscapes.</li><li data-key="prezero-modal-li2">Improved data-driven decision making.</li><li data-key="prezero-modal-li3">Embedded governance and compliance.</li></ul></div></div>
     <div id="vidaxl" class="modal" role="dialog" aria-modal="true" aria-labelledby="vidaxl-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="vidaxl-heading" data-key="vidaxl-modal-h">vidaXL — Development Manager</h3><p data-key="vidaxl-modal-p">Scaled a Matrix Agile Organisation to 14 DevOps teams.</p><ul><li data-key="vidaxl-modal-li1">Budget & capacity planning for multi-team delivery.</li><li data-key="vidaxl-modal-li2">Built partner network; near/offsourcing.</li><li data-key="vidaxl-modal-li3">Process optimisation and executive escalation path.</li></ul></div></div>
     <div id="vos" class="modal" role="dialog" aria-modal="true" aria-labelledby="vos-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="vos-heading" data-key="vos-modal-h">Vos Logistics — Software Development Manager</h3><p data-key="vos-modal-p">Expanded engineering capacity and delivery quality.</p><ul><li data-key="vos-modal-li1">Hired engineers and managed vendors.</li><li data-key="vos-modal-li2">Optimised SDLC and delivery cadence.</li><li data-key="vos-modal-li3">Aligned roadmaps with logistics operations.</li></ul></div></div>
-    <div id="mega" class="modal" role="dialog" aria-modal="true" aria-labelledby="mega-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="mega-heading" data-key="mega-modal-h">MegaGroup — IT Manager</h3><p data-key="mega-modal-p">IT strategy for 7 companies in 6 countries.</p><ul><li data-key="mega-modal-li1">ERP (MS Dynamics) & WMS implementations.</li><li data-key="mega-modal-li2">Infra renewal & e‑commerce rollout.</li><li data-key="mega-modal-li3">Founded Change Advisory Board; MT member.</li></ul></div></div>
+    <div id="mega" class="modal" role="dialog" aria-modal="true" aria-labelledby="mega-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="mega-heading" data-key="mega-modal-h">MegaGroup — IT Manager</h3><p data-key="mega-modal-p">IT strategy for 7 companies in 6 countries.</p><ul><li data-key="mega-modal-li1">ERP (MS Dynamics) & WMS implementaties.</li><li data-key="mega-modal-li2">Infra renewal & e‑commerce rollout.</li><li data-key="mega-modal-li3">Founded Change Advisory Board; MT member.</li></ul></div></div>
     <div id="vink" class="modal" role="dialog" aria-modal="true" aria-labelledby="vink-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="vink-heading" data-key="vink-modal-h">Vink Holding — IT Operations & Contracts Manager</h3><p data-key="vink-modal-p">Daily IT operations for 24 companies in 20 countries.</p><ul><li data-key="vink-modal-li1">Implemented ITSM processes and architecture guardrails.</li><li data-key="vink-modal-li2">Negotiated supplier contracts and SLAs.</li><li data-key="vink-modal-li3">Delivered group-wide hard/soft projects.</li></ul></div></div>
     <div id="europ" class="modal" role="dialog" aria-modal="true" aria-labelledby="europ-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="europ-heading" data-key="europ-modal-h">Europ Assistance — Team Manager ICT</h3><p data-key="europ-modal-p">Ensured 24/7 operations across 3 sites.</p><ul><li data-key="europ-modal-li1">Managed Service Desk & team growth.</li><li data-key="europ-modal-li2">Bridged business and IT for availability goals.</li><li data-key="europ-modal-li3">Delivered critical IT projects.</li></ul></div></div>
     <div id="dominos" class="modal" role="dialog" aria-modal="true" aria-labelledby="dominos-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="dominos-heading" data-key="dominos-modal-h">Domino’s Pizza — Store Manager</h3><p data-key="dominos-modal-p">End-to-end store leadership in a fast-paced context.</p><ul><li data-key="dominos-modal-li1">People development & shift operations.</li><li data-key="dominos-modal-li2">Sales performance & quality control.</li></ul></div></div>
@@ -262,7 +295,7 @@
     <div id="sap" class="modal" role="dialog" aria-modal="true" aria-labelledby="sap-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="sap-heading" data-key="sap-modal-h">SAP S/4HANA Foundations</h3><p data-key="sap-modal-p">Core ERP architecture & processes.</p><ul><li data-key="sap-modal-li1">Digital core concepts and integrations.</li></ul></div></div>
     <div id="azure" class="modal" role="dialog" aria-modal="true" aria-labelledby="azure-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="azure-heading" data-key="azure-modal-h">Microsoft Azure Fundamentals</h3><p data-key="azure-modal-p">Cloud basics.</p><ul><li data-key="azure-modal-li1">Applied to scalable, secure solutions.</li></ul></div></div>
     <div id="scrum" class="modal" role="dialog" aria-modal="true" aria-labelledby="scrum-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="scrum-heading" data-key="scrum-modal-h">SCRUM for Business</h3><p data-key="scrum-modal-p">Agile mindset & Scrum in business settings.</p><ul><li data-key="scrum-modal-li1">Iterative delivery and stakeholder alignment.</li></ul></div></div>
-    <div id="itil" class="modal" role="dialog" aria-modal="true" aria-labelledby="itil-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="itil-heading" data-key="itil-modal-h">ITIL Foundations V2 & V3</h3><p data-key="itil-modal-p">Service management.</p><ul><li data-key="itil-modal-li1">IT-business alignment and SLA focus.</li></ul></div></div>
+    <div id="itil" class="modal" role="dialog" aria-modal="true" aria-labelledby="itil-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="itil-heading" data-key="itil-modal-h">ITIL Foundations V2 & V3</h3><p data-key="itil-modal-p">Service management.</p><ul><li data-key="itil-modal-li1">IT-business alignment and SLA-focus.</li></ul></div></div>
     <div id="facility" class="modal" role="dialog" aria-modal="true" aria-labelledby="facility-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="facility-heading" data-key="facility-modal-h">Facility Management</h3><p data-key="facility-modal-p">Hogeschool Ijsselland</p><ul><li data-key="facility-modal-li1">Foundations of organisational service delivery.</li></ul></div></div>
 
     <div id="cto" class="modal" role="dialog" aria-modal="true" aria-labelledby="cto-heading" aria-hidden="true"><div class="modal-content"><span class="close" tabindex="0">&times;</span><h3 id="cto-heading" data-key="cto-modal-h">Interim CTO / CIO</h3><p data-key="cto-modal-p">Hands-on executive leadership during transitions.</p><ul><li data-key="cto-modal-li1">Stabilise IT operations & reduce risk.</li><li data-key="cto-modal-li2">Own and communicate the technology roadmap.</li><li data-key="cto-modal-li3">Mentor leadership for lasting capability.</li></ul></div></div>
@@ -380,6 +413,8 @@
                 "copyright-text-1": "&copy;",
                 "copyright-text-2": "Emiel van Bree | Available for Freelance Opportunities |",
                 "contact-footer-link": "Contact Me",
+                "whatsapp-message": "Hi Emiel, I saw your portfolio online and I would like to get in touch for a quick discussion. My name is [Your Name] and my email is [Your Email].",
+                "contact-alert-success": "Thank you for your message! Emiel will get back to you shortly.",
                 "salesupply-modal-h": "Salesupply — Chief Technology Officer",
                 "salesupply-modal-p": "Leading technology strategy and transformation.",
                 "salesupply-modal-li1": "Define and execute global IT strategy.",
@@ -420,7 +455,7 @@
                 "dominos-modal-li1": "Personeelsontwikkeling & ploegendienst.",
                 "dominos-modal-li2": "Verkoopprestaties & kwaliteitscontrole.",
                 "chef-modal-h": "Restaurants — Kok",
-                "chef-modal-p": "Keukens onder hoge druk die discipline en teamwerk smeedden.",
+                "chef-modal-p": "High-pressure kitchens that forged discipline & teamwork.",
                 "chef-modal-li1": "Kwaliteitsnormen en consistentie.",
                 "chef-modal-li2": "Coördinatie van de bediening met het team.",
                 "mba-modal-h": "Nyenrode — Modulaire MBA (Digitale Strategie & Transformatie)",
@@ -428,7 +463,7 @@
                 "mba-modal-li1": "Strategisch leiderschap en innovatie.",
                 "mba-modal-li2": "Enterprise transformatiekaders.",
                 "sap-modal-h": "SAP S/4HANA Grundlagen",
-                "sap-modal-p": "Kern ERP-architectuur & processen.",
+                "sap-modal-p": "Core ERP-architectuur & processen.",
                 "sap-modal-li1": "Digitale kernconcepten en integraties.",
                 "azure-modal-h": "Microsoft Azure Grundlagen",
                 "azure-modal-p": "Cloud-fundamentals.",
@@ -436,7 +471,7 @@
                 "scrum-modal-h": "SCRUM voor Bedrijven",
                 "scrum-modal-p": "Agile mindset & Scrum in zakelijke omgevingen.",
                 "scrum-modal-li1": "Iteratieve levering en afstemming met stakeholders.",
-                "itil-modal-h": "ITIL Foundations v2 & v3",
+                "itil-modal-h": "ITIL Foundations V2 & V3",
                 "itil-modal-p": "Servicemanagement.",
                 "itil-modal-li1": "IT-business afstemming en SLA-focus.",
                 "facility-modal-h": "Facility Management",
@@ -466,7 +501,7 @@
                 "innovation-modal-h": "Digitale Innovatie Adviseur",
                 "innovation-modal-p": "Identificeren, valideren en schalen van nieuwe waarde.",
                 "innovation-modal-li1": "Technologieverkenning & experimenteren.",
-                "innovation-modal-li2": "Businessmodel pilots & adoptie.",
+                "innovation-modal-li2": "Business-Modell-Piloten & Adoptie.",
                 "contact-modal-h": "Neem Contact op",
                 "contact-name-label": "Naam",
                 "contact-email-label": "E-mail",
@@ -474,7 +509,6 @@
                 "contact-send-button": "Bericht Verzenden",
                 "contact-alternative": "U kunt ook direct contact opnemen:",
                 "contact-phone-label": "Telefoon",
-                "whatsapp-button-text": "Snel Contact",
                 "whatsapp-message": "Hallo Emiel, ik heb je portfolio online gezien en wil graag in contact komen voor een kort overleg. Mijn naam is [Jouw Naam] en mijn e-mail is [Jouw E-mail].",
                 "contact-alert-success": "Bedankt voor je bericht! Emiel zal zo spoedig mogelijk contact met je opnemen."
             },
@@ -520,108 +554,15 @@
                 "copyright-text-1": "&copy;",
                 "copyright-text-2": "Emiel van Bree | Verfügbar für freiberufliche Aufträge |",
                 "contact-footer-link": "Kontaktieren Sie mich",
-                "salesupply-modal-h": "Salesupply — Chief Technology Officer",
-                "salesupply-modal-p": "Leitung der Technologiestrategie und -transformation.",
-                "prezero-modal-h": "PreZero — Manager IT Business Consulting",
-                "prezero-modal-p": "Leitung der Geschäfts-IT-Ausrichtung und Modernisierung.",
-                "prezero-modal-li1": "Beratung von Stakeholdern zu nachhaltigen IT-Landschaften.",
-                "prezero-modal-li2": "Verbesserung der datengesteuerten Entscheidungsfindung.",
-                "prezero-modal-li3": "Verankerung von Governance und Compliance.",
-                "vidaxl-modal-h": "vidaXL — Entwicklungsmanager",
-                "vidaxl-modal-p": "Skalierte eine Matrix Agile Organisation auf 14 DevOps-Teams.",
-                "vidaxl-modal-li1": "Budget- und Kapazitätsplanung für die Lieferung von Multi-Teams.",
-                "vidaxl-modal-li2": "Aufbau eines Partnernetzwerks; Near-/Offshoring.",
-                "vidaxl-modal-li3": "Prozessoptimierung und Eskalationspfad für Führungskräfte.",
-                "vos-modal-h": "Vos Logistics — Softwareentwicklungsmanager",
-                "vos-modal-p": "Erweiterung der Ingenieurkapazität und Lieferqualität.",
-                "vos-modal-li1": "Einstellung von Ingenieuren und Verwaltung von Lieferanten.",
-                "vos-modal-li2": "Optimierung des SDLC und der Lieferkadenz.",
-                "vos-modal-li3": "Abstimmung von Roadmaps mit den Logistikabläufen.",
-                "mega-modal-h": "MegaGroup — IT-Manager",
-                "mega-modal-p": "IT-Strategie für 7 bedrijven in 6 landen.",
-                "mega-modal-li1": "ERP (MS Dynamics) & WMS-Implementierungen.",
-                "mega-modal-li2": "Infrastruktur-Erneuerung & E-Commerce-Rollout.",
-                "mega-modal-li3": "Gründung des Change Advisory Board; MT-Mitglied.",
-                "vink-modal-h": "Vink Holding — IT Operations & Contracts Manager",
-                "vink-modal-p": "Tägliche IT-Betrieb für 24 Unternehmen in 20 Ländern.",
-                "vink-modal-li1": "Implementierung von ITSM-Prozessen und Architekturrichtlinien.",
-                "vink-modal-li2": "Aushandlung von Lieferantenverträgen und SLAs.",
-                "vink-modal-li3": "Durchführung von gruppenweiten Hard-/Soft-Projekten.",
-                "europ-modal-h": "Europ Assistance — Team Manager ICT",
-                "europ-modal-p": "Sicherstellung des 24/7-Betriebs an 3 Standorten.",
-                "europ-modal-li1": "Verwaltung des Service Desk & Teamwachstums.",
-                "europ-modal-li2": "Überbrückung von Geschäft und IT voor beschikbaarheidsdoelen.",
-                "europ-modal-li3": "Durchführung kritischer IT-Projekte.",
-                "dominos-modal-h": "Domino's Pizza — Filialleiter",
-                "dominos-modal-p": "End-to-end leiderschap van de winkel in een snelle omgeving.",
-                "dominos-modal-li1": "Personeelsontwikkeling & ploegendienst.",
-                "dominos-modal-li2": "Verkoopprestaties & kwaliteitscontrole.",
-                "chef-modal-h": "Restaurants — Kok",
-                "chef-modal-p": "Küchen unter hohem Druck, die Disziplin und Teamarbeit smeedden.",
-                "chef-modal-li1": "Kwalitätsnormen und consistentie.",
-                "chef-modal-li2": "Coördinatie van de bediening met het team.",
-                "mba-modal-h": "Nyenrode — Modulaire MBA (Digitale Strategie & Transformatie)",
-                "mba-modal-p": "Executive-Programm für digitale Geschäftsentwicklung und Transformation.",
-                "mba-modal-li1": "Strategische Führung und Innovation.",
-                "mba-modal-li2": "Enterprise-Transformationsrahmen.",
-                "sap-modal-h": "SAP S/4HANA Grundlagen",
-                "sap-modal-p": "Kern-ERP-Architektur & Prozesse.",
-                "sap-modal-li1": "Digitale Kernkonzepte und Integrationen.",
-                "azure-modal-h": "Microsoft Azure Grundlagen",
-                "azure-modal-p": "Cloud-Grundlagen.",
-                "azure-modal-li1": "Anwendung auf skalierbare, sichere Lösungen.",
-                "scrum-modal-h": "SCRUM für Unternehmen",
-                "scrum-modal-p": "Agile Denkweise & Scrum im Geschäftsumfeld.",
-                "scrum-modal-li1": "Iterative Lieferung und Abstimmung der Stakeholder.",
-                "itil-modal-h": "ITIL Foundations v2 & v3",
-                "itil-modal-p": "Servicemanagement.",
-                "itil-modal-li1": "IT-Business-Ausrichtung und SLA-Fokus.",
-                "facility-modal-h": "Facility Management",
-                "facility-modal-p": "Hogeschool Ijsselland",
-                "facility-modal-li1": "Grundlagen der organisatorischen Leistungserbringung.",
-                "cto-modal-h": "Interim CTO / CIO",
-                "cto-modal-p": "Praktische Führungskraft während Übergangsphasen.",
-                "cto-modal-li1": "Stabilisierung des IT-Betriebs & Risikoreduzierung.",
-                "cto-modal-li2": "Verantwortung für die Technologieroadmap und Kommunikation.",
-                "cto-modal-li3": "Mentoring von Führungskräften für dauerhafte Kapazität.",
-                "strategy-modal-h": "IT-Transformations- & Strategieberater",
-                "strategy-modal-p": "Entwurf und Leitung von Modernisierungsprogrammen.",
-                "strategy-modal-li1": "Beurteilung der Landschaft und Definition der Zielarchitektur.",
-                "strategy-modal-li2": "Lieferung messbarer Ergebnisse und Governance.",
-                "agile-modal-h": "Agile / DevOps Implementierungsleiter",
-                "agile-modal-p": "Skalierung agiler & DevOps-Praktiken.",
-                "agile-modal-li1": "Coaching, Frameworks und Metriken.",
-                "agile-modal-li2": "Verbesserungen der Pipeline und Plattform.",
-                "program-modal-h": "Programm- & Projektmanager",
-                "program-modal-p": "End-to-End-Lieferung komplexer Initiativen.",
-                "program-modal-li1": "Umfang, Zeitplan, Budget & Risiko.",
-                "program-modal-li2": "Stakeholder-Kommunikation und Wertrealisierung.",
-                "vendor-modal-h": "Spezialist für Lieferanten- & Vertragsmanagement",
-                "vendor-modal-p": "Optimierung des Partner-Ökosystems & SLAs.",
-                "vendor-modal-li1": "Vertragsverhandlungen & Leistungsmanagement.",
-                "vendor-modal-li2": "Kostenkontrolle und Risikominderung.",
-                "innovation-modal-h": "Digitaler Innovationsberater",
-                "innovation-modal-p": "Identifizierung, Validierung und Skalierung neuer Werte.",
-                "innovation-modal-li1": "Tech-Scouting & Experimente.",
-                "innovation-modal-li2": "Business-Modell-Piloten & Adoption.",
-                "contact-modal-h": "Kontaktieren Sie mich",
-                "contact-name-label": "Name",
-                "contact-email-label": "E-Mail",
-                "contact-message-label": "Nachricht",
-                "contact-send-button": "Nachricht senden",
-                "contact-alternative": "Alternativ können Sie mich direkt erreichen:",
-                "contact-phone-label": "Telefoon",
-                "whatsapp-button-text": "Schnell kontaktieren",
                 "whatsapp-message": "Hallo Emiel, ich habe Ihr Portfolio online gesehen und möchte Sie gerne für ein kurzes Gespräch kontaktieren. Mein Name ist [Ihr Name] und meine E-mail ist [Ihre E-mail].",
                 "contact-alert-success": "Vielen Dank für Ihre Nachricht! Emiel wird sich in Kürze bei Ihnen melden."
             }
         };
 
-        let testimonialsToDisplay = [];
-        let currentTestimonialIndex = 0;
-        const maxTestimonials = 3;
-        const rotationInterval = 10000; // 10 seconds
-
+        let testimonialShuffle = [];
+        let testimonialRotationTimer;
+        const allTestimonialElements = document.querySelectorAll('.testimonial-block');
+        
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -631,63 +572,53 @@
         }
 
         function rotateTestimonial(index) {
-            const currentLang = document.querySelector('.language-selector img.active').dataset.lang;
-            const allTestimonialsForLang = allTestimonials[currentLang] || allTestimonials.en;
-            const container = document.getElementById('testimonial-container');
+            const testimonialBlock = allTestimonialElements[index];
+            if (!testimonialBlock) return;
             
-            // Check if there are enough testimonials to rotate
-            if (allTestimonialsForLang.length <= index) {
-                return;
-            }
-
-            const currentTestimonialElement = container.children[index];
-            if (!currentTestimonialElement) return;
-
-            // Fade out the old testimonial
-            currentTestimonialElement.classList.add('fade-out');
-
+            testimonialBlock.classList.add('fade-out');
+            
             setTimeout(() => {
-                // Get the next testimonial from our shuffled array
-                const newTestimonial = testimonialsToDisplay[currentTestimonialIndex];
-
-                // Update the DOM with the new testimonial content
-                currentTestimonialElement.innerHTML = `
-                    <p>"${newTestimonial.quote}"</p>
-                    <span class="author">— <strong>${newTestimonial.author.split('(')[0].trim()}</strong> (${newTestimonial.author.split('(')[1] || ''}</span>
-                `;
-
-                // Fade in the new testimonial
-                currentTestimonialElement.classList.remove('fade-out');
-
-                // Advance the index for the next rotation cycle
-                currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialsToDisplay.length;
-            }, 2000); // Slower fade-out time
+                const nextTestimonial = testimonialShuffle.shift();
+                if (nextTestimonial) {
+                    const quoteElement = testimonialBlock.querySelector('.testimonial-quote');
+                    const authorElement = testimonialBlock.querySelector('.author');
+                    if (quoteElement && authorElement) {
+                        quoteElement.textContent = nextTestimonial.quote;
+                        authorElement.textContent = nextTestimonial.author;
+                        testimonialShuffle.push(nextTestimonial);
+                    }
+                } else {
+                    console.error("No more testimonials to show.");
+                }
+                testimonialBlock.classList.remove('fade-out');
+            }, 2000); // Wait for fade-out transition
         }
 
         function startTestimonialRotation() {
-            // Initial display
-            const currentLang = document.querySelector('.language-selector img.active').dataset.lang;
-            const allTestimonialsForLang = allTestimonials[currentLang] || allTestimonials.en;
-            testimonialsToDisplay = shuffleArray([...allTestimonialsForLang]);
+            clearInterval(testimonialRotationTimer);
             
-            // Render the initial set of 3 testimonials
-            const container = document.getElementById('testimonial-container');
-            container.innerHTML = '';
-            for (let i = 0; i < maxTestimonials; i++) {
-                const div = document.createElement('div');
-                div.className = 'testimonial';
-                div.innerHTML = `
-                    <p>"${testimonialsToDisplay[i].quote}"</p>
-                    <span class="author">— <strong>${testimonialsToDisplay[i].author.split('(')[0].trim()}</strong> (${testimonialsToDisplay[i].author.split('(')[1] || ''}</span>
-                `;
-                container.appendChild(div);
+            const currentLang = document.querySelector('.language-selector img.active').dataset.lang;
+            testimonialShuffle = shuffleArray([...allTestimonials[currentLang]]);
+
+            // Initial load of 3 testimonials
+            for (let i = 0; i < 3; i++) {
+                const testimonial = testimonialShuffle.shift();
+                if (testimonial) {
+                    const quoteElement = allTestimonialElements[i].querySelector('.testimonial-quote');
+                    const authorElement = allTestimonialElements[i].querySelector('.author');
+                    if (quoteElement && authorElement) {
+                        quoteElement.textContent = testimonial.quote;
+                        authorElement.textContent = testimonial.author;
+                        testimonialShuffle.push(testimonial); 
+                    }
+                }
             }
-            currentTestimonialIndex = maxTestimonials % testimonialsToDisplay.length;
 
             // Start the staggered rotation
-            setInterval(() => rotateTestimonial(0), rotationInterval);
-            setInterval(() => rotateTestimonial(1), rotationInterval);
-            setInterval(() => rotateTestimonial(2), rotationInterval);
+            testimonialRotationTimer = setInterval(() => {
+                const rotationIndex = Math.floor((new Date().getTime() / 3333.33) % 3);
+                rotateTestimonial(rotationIndex);
+            }, 3333.33); // Approximately 10 seconds / 3 testimonials
         }
 
         function setLanguage(lang) {
@@ -699,7 +630,7 @@
                     } else if (el.tagName === 'LABEL') {
                         el.textContent = otherTranslations[lang][key];
                     } else if (key.includes("modal-h")) {
-                        const [title, subtitle] = otherTranslations[lang][key].split('—');
+                        const [title] = otherTranslations[lang][key].split('—');
                         el.textContent = title.trim();
                         const modalContent = el.closest('.modal-content');
                         const p = modalContent.querySelector(`p[data-key="${key.replace('-h', '-p')}"]`);
@@ -781,7 +712,6 @@
 
         // Initial setup on page load
         setLanguage('en');
-        startTestimonialRotation();
     </script>
 </body>
 </html>
